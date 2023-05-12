@@ -1,5 +1,25 @@
 export function onCellClick(grid, setGrid, phase, setPhase, x, y) {
-    //switch case phase
-    //neutral? vê se selecionou o bicho e altera o grid de acordo
-    //selection? vê se o lugar que tá indo é possível, executa o movimento e limpa o grid
+    switch (phase) {
+        case 'neutral':
+            if (grid[y][x] === 'cell-actor') {
+                //spawn range if not obstacle or actor
+
+                setPhase('selected');
+            }
+            break;
+        case 'selected':
+            if (grid[y][x] === 'cell-range') {
+                const newGrid = grid;
+
+                //iterate grid to clear range and position cells
+
+                newGrid[y][x] = 'cell-actor';
+
+                setGrid(newGrid);
+                setPhase('neutral');
+            }
+            break;
+        default:
+            break;
+    }
 }
