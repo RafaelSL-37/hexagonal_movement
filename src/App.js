@@ -1,9 +1,10 @@
-import Actor from './components/Actor'
+import Grid from './components/grid'
+import React from 'react';
 
 function App() {
   return (
     <div className="App">
-      <Actor />
+      <Grid />
     </div>
   );
 }
