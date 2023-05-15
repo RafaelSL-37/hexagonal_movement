@@ -21,7 +21,7 @@ function fillGridWithRangeAroundCell(grid, differences, y, x){
 
 export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
     switch (phase) {
-        case 'neutral':
+        case 'neutral': //create enum for phases
             if (grid[y][x] === 'cell-actor') {
                 console.log(y, x, grid[y][x])
                 
@@ -56,6 +56,12 @@ export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
                 setGrid(newGrid);
                 setPhase('neutral');
             }
+            break;
+        case 'spawn-actor':
+            break;
+        case 'spawn-obstacle':
+            break;
+        case 'remove-actor-or-obstacle':
             break;
         default:
             break;

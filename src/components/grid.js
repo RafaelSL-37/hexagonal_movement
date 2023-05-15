@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { onCellClick } from '../handlers/click-handler';
+import { onCellClick } from '../handlers/grid-cell-click-handler';
+import { changePhaseOnButtonClick } from '../handlers/phase-button-click-handler';
 import '../style/style.css'
 
 function Grid() {
@@ -68,9 +69,9 @@ function Grid() {
       </div> 
       <br /><br />
       <div className='container'>
-        <button>Add Obstacle</button>
-        <button>Add Actor</button>
-        <button>Remove Actor/Obstacle</button>
+        <button onClick={() => changePhaseOnButtonClick(setPhase, phase, 'spawn-actor')}>{phase !== 'spawn-actor' ? 'Add Actor' : 'Cancel'}</button>
+        <button onClick={() => changePhaseOnButtonClick(setPhase, phase, 'spawn-obstacle')}>{phase !== 'spawn-obstacle' ? 'Add Obstacle' : 'Cancel'}</button>
+        <button onClick={() => changePhaseOnButtonClick(setPhase, phase, 'remove-actor-or-obstacle')}>{phase !== 'remove-actor-or-obstacle' ? 'Remove Actor/Obstacle' : 'Cancel'}</button>
       </div>
     </div>  
   );
