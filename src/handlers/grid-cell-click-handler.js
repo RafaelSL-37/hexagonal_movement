@@ -21,14 +21,14 @@ function fillGridWithRangeAroundCell(grid, differences, y, x){
 
 export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
     switch (phase) {
-        case 'neutral': //create enum for phases
+        case 'neutral': //TODO: create enum for phases
             if (grid[y][x] === 'cell-actor') {
                 console.log(y, x, grid[y][x])
                 
-                // change it to iterative based on movespeed
+                //TODO: change it to iterative based on movespeed
                 const newGrid = y/2 > 0 
                     ? fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForOdd, y, x) 
-                    : fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForEven, y, x);
+                    : fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForEven, y, x); //TODO: fix even range being slightly off
                 
                 setGrid(newGrid);
                 setPhase('selected');
@@ -58,10 +58,13 @@ export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
             }
             break;
         case 'spawn-actor':
+            //TODO: create spawn actor on empty space
             break;
         case 'spawn-obstacle':
+            //TODO: create spawn obstacle on empty space
             break;
         case 'remove-actor-or-obstacle':
+            //TODO: create delete actor or obstacle on occupied space
             break;
         default:
             break;
