@@ -1,7 +1,7 @@
 import { differenceBasedOnDirectionForOdd, differenceBasedOnDirectionForEven } from '../utils/hexagonal-grid-dy-table'
 
-function isNotOutOfBoundaries(y, x, grid) { //TODO: fix bug on last row
-    if (x < 0 || y < 0 || x > grid[0].length || y > grid.length) {
+function isNotOutOfBoundaries(y, x, grid) {
+    if (x < 0 || y < 0 || x > grid[0].length-1 || y > grid.length-1) {
         return false;
     } else {
         return true;

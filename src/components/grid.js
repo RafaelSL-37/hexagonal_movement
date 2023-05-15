@@ -1,36 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { onCellClick } from '../handlers/grid-cell-click-handler';
 import { changePhaseOnButtonClick } from '../handlers/phase-button-click-handler';
-// import { gridGenerator } from '../utils/grid-generator';
+import { gridGenerator } from '../utils/grid-generator';
 import '../style/style.css'
 
 // const moveSpeed = 1;
-// const gridDimension = {
-//   rows: 5,
-//   columns: 5,
-// }
+const gridDimension = {
+  rows: 6,
+  columns: 6,
+}
 
-//TODO: discover how to execute this just once, at page load
-// const initialGrid = gridGenerator(gridDimension);
+const initialGrid = gridGenerator(gridDimension);
 
 function Grid() {
   const [phase, setPhase] = useState('neutral');
-  const [grid, setGrid] = useState([
-    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-  ]);
 
-  // const [grid, setGrid] = useState([]);
+  useEffect(() => {
+    setGrid(initialGrid);
+  }, []);
 
-  // useEffect(() => {
-  //   setGrid(initialGrid);
-  // }, []);
-
-  // const [grid, setGrid] = useState(initialGrid);
+  const [grid, setGrid] = useState(initialGrid);
 
   return (
     <div>
@@ -55,7 +44,7 @@ function Grid() {
       </div>
       <br /><br /><br />
       <div className='container'>
-        {phase}
+        Current Phase: {phase}
       </div> 
       <br /><br />
       <div className='container'>
