@@ -19,14 +19,15 @@ function fillGridWithRangeAroundCell(grid, differences, y, x){
     return grid;
 }
 
+//TODO: break next function in several smaller functions
 export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
     switch (phase) {
-        case 'neutral': //TODO: create enum for phases
+        case 'neutral':
             if (grid[y][x] === 'cell-actor') {
                 //TODO: change it to iterative based on movespeed
-                const newGrid = y/2 > 0 
+                const newGrid = y%2 > 0 
                     ? fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForOdd, y, x) 
-                    : fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForEven, y, x); //TODO: fix even range being slightly off
+                    : fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForEven, y, x);
                 
                 newGrid[y][x] = 'cell-selected';
 
