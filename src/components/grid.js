@@ -6,13 +6,14 @@ import '../style/style.css'
 function Grid() {
   const [phase, setPhase] = useState('neutral');
 
+  //TODO: construct function to set initial grid dynamically
   const [grid, setGrid] = useState([
     ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-    ['cell-empty', 'cell-obstacle', 'cell-empty', 'cell-empty', 'cell-empty'],
+    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
     ['cell-empty', 'cell-empty', 'cell-actor', 'cell-empty', 'cell-empty'],
     ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-obstacle', 'cell-empty'],
-    ['cell-obstacle', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
+    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
+    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
   ]);
 
   return (

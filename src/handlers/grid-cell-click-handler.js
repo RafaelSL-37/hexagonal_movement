@@ -23,13 +23,13 @@ export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
     switch (phase) {
         case 'neutral': //TODO: create enum for phases
             if (grid[y][x] === 'cell-actor') {
-                console.log(y, x, grid[y][x])
-                
                 //TODO: change it to iterative based on movespeed
                 const newGrid = y/2 > 0 
                     ? fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForOdd, y, x) 
                     : fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForEven, y, x); //TODO: fix even range being slightly off
                 
+                newGrid[y][x] = 'cell-selected';
+
                 setGrid(newGrid);
                 setPhase('selected');
             }
@@ -38,7 +38,7 @@ export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
             if (grid[y][x] === 'cell-range') {
                 const newGrid = grid.map((array) => {
                     return array.map((element) => {
-                        return element = element === 'cell-range' || element === 'cell-actor' ? 'cell-empty' : element
+                        return element = element === 'cell-range' || element === 'cell-selected' ? 'cell-empty' : element
                     })
                 });
 
@@ -46,25 +46,42 @@ export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
 
                 setGrid(newGrid);
                 setPhase('neutral');
-            } else if (grid[y][x] === 'cell-actor') {
+            } else if (grid[y][x] === 'cell-selected') {
                 const newGrid = grid.map((array) => {
                     return array.map((element) => {
                         return element = element === 'cell-range' ? 'cell-empty' : element
                     })
                 });
 
+                newGrid[y][x] = 'cell-actor';
+
                 setGrid(newGrid);
                 setPhase('neutral');
             }
             break;
         case 'spawn-actor':
-            //TODO: create spawn actor on empty space
+            if (grid[y][x] === 'cell-empty') {
+                grid[y][x] = 'cell-actor';
+
+                setGrid(grid);
+                setPhase('neutral');
+            }
             break;
         case 'spawn-obstacle':
-            //TODO: create spawn obstacle on empty space
+            if (grid[y][x] === 'cell-empty') {
+                grid[y][x] = 'cell-obstacle';
+
+                setGrid(grid);
+                setPhase('neutral');
+            }
             break;
         case 'remove-actor-or-obstacle':
-            //TODO: create delete actor or obstacle on occupied space
+            if (grid[y][x] === 'cell-actor' || grid[y][x] === 'cell-obstacle' ) {
+                grid[y][x] = 'cell-empty';
+
+                setGrid(grid);
+                setPhase('neutral');
+            }
             break;
         default:
             break;
