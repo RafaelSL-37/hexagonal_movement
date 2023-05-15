@@ -41,7 +41,7 @@
 .row-odd { 
     margin-left: 25px;
 }
-/*TODO: fix grid margin on even rows*/
+
 .grid {
     display: flex;
     flex-direction: row;
@@ -53,9 +53,9 @@
     background-color: black;
 }
 
-.phase-text {
-    text-align: center;
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }

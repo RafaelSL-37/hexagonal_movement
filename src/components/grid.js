@@ -63,8 +63,14 @@ function Grid() {
         </div>
       </div>
       <br /><br /><br />
-      <div className='phase-text'>
+      <div className='container'>
         {phase}
+      </div> 
+      <br /><br />
+      <div className='container'>
+        <button>Add Obstacle</button>
+        <button>Add Actor</button>
+        <button>Remove Actor/Obstacle</button>
       </div>
     </div>  
   );

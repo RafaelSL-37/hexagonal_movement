@@ -25,6 +25,7 @@ export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
             if (grid[y][x] === 'cell-actor') {
                 console.log(y, x, grid[y][x])
                 
+                // change it to iterative based on movespeed
                 const newGrid = y/2 > 0 
                     ? fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForOdd, y, x) 
                     : fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForEven, y, x);
