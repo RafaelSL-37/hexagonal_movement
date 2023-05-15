@@ -3,6 +3,7 @@
     height: 50px;
     border-radius: 100%;
     background-color: greenyellow;
+    float: left;
 }
 
 .cell-empty {
@@ -10,6 +11,7 @@
     height: 50px;
     border-radius: 100%;
     background-color: white;
+    float: left;
 }
 
 .cell-actor {
@@ -17,6 +19,7 @@
     height: 50px;
     border-radius: 100%;
     background-color: green;
+    float: left;
 }
 
 .cell-obstacle {
@@ -24,6 +27,7 @@
     height: 50px;
     border-radius: 100%;
     background-color: red;
+    float: left;
 }
 
 .cell-range {
@@ -31,14 +35,16 @@
     height: 50px;
     border-radius: 100%;
     background-color: blue;
+    float: left;
 }
 
-.row { 
-    margin-right: 25px;
+.row-odd { 
+    margin-left: 25px;
 }
 /*TODO: fix grid margin on even rows*/
 .grid {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
