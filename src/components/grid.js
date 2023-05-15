@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
 import { onCellClick } from '../handlers/grid-cell-click-handler';
 import { changePhaseOnButtonClick } from '../handlers/phase-button-click-handler';
+import { gridGenerator } from '../utils/grid-generator';
 import '../style/style.css'
+
+// const moveSpeed = 1;
+// const gridDimension = {
+//   rows: 5,
+//   columns: 5,
+// }
+
+//TODO: discover how to execute this just once, at page load
+// const initialGrid = gridGenerator(gridDimension);
 
 function Grid() {
   const [phase, setPhase] = useState('neutral');
 
-  //TODO: construct function to set initial grid dynamically
   const [grid, setGrid] = useState([
     ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
     ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
-    ['cell-empty', 'cell-empty', 'cell-actor', 'cell-empty', 'cell-empty'],
+    ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
     ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
     ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
     ['cell-empty', 'cell-empty', 'cell-empty', 'cell-empty', 'cell-empty'],
   ]);
+
+  // const [grid, setGrid] = useState(initialGrid);
 
   return (
     <div>
