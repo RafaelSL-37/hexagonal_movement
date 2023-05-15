@@ -8,28 +8,28 @@ function isNotOutOfBoundaries(y, x) {
     }
 }
 
+function fillGridWithRangeAroundCell(grid, differences, y, x){
+    for (const differenceByDirection of differences) {
+        const newY = y+differenceByDirection.dy;
+        const newX = x+differenceByDirection.dx;
+
+        if (isNotOutOfBoundaries(newY, newX) && grid[newY][newX] === 'cell-empty') grid[newY][newX] = 'cell-range';
+    }
+
+    return grid;
+}
+
 export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
     switch (phase) {
         case 'neutral':
             if (grid[y][x] === 'cell-actor') {
                 console.log(y, x, grid[y][x])
                 
-                if (y/2 > 0) {
-                    for (const differenceByDirection of differenceBasedOnDirectionForOdd) {
-                        const newY = y+differenceByDirection.dy;
-                        const newX = x+differenceByDirection.dx;
-
-                        if (isNotOutOfBoundaries(newY, newX) && grid[newY][newX] === 'cell-empty') grid[newY][newX] = 'cell-range';
-                    }
-                } else {
-                    for (const differenceByDirection of differenceBasedOnDirectionForEven) { //TODO: fix direction problem
-                        const newY = y+differenceByDirection.dy;
-                        const newX = x+differenceByDirection.dx;
-
-                        if (isNotOutOfBoundaries(newY, newX) && grid[newY][newX] === 'cell-empty') grid[newY][newX] = 'cell-range';
-                    }
-                }
-
+                const newGrid = y/2 > 0 
+                    ? fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForOdd, y, x) 
+                    : fillGridWithRangeAroundCell(grid, differenceBasedOnDirectionForEven, y, x);
+                
+                setGrid(newGrid);
                 setPhase('selected');
             }
             break;
