@@ -1,7 +1,7 @@
 import { differenceBasedOnDirectionForOdd, differenceBasedOnDirectionForEven } from '../utils/hexagonal-grid-dy-table'
 
-function isNotOutOfBoundaries(y, x) {
-    if (x < 0 || y < 0 || x > 4 || y > 5) {
+function isNotOutOfBoundaries(y, x, grid) { //TODO: fix bug on last row
+    if (x < 0 || y < 0 || x > grid[0].length || y > grid.length) {
         return false;
     } else {
         return true;
@@ -13,7 +13,7 @@ function fillGridWithRangeAroundCell(grid, differences, y, x){
         const newY = y+differenceByDirection.dy;
         const newX = x+differenceByDirection.dx;
 
-        if (isNotOutOfBoundaries(newY, newX) && grid[newY][newX] === 'cell-empty') grid[newY][newX] = 'cell-range';
+        if (isNotOutOfBoundaries(newY, newX, grid) && grid[newY][newX] === 'cell-empty') grid[newY][newX] = 'cell-range';
     }
 
     return grid;
