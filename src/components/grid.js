@@ -4,7 +4,7 @@ import { changePhaseOnButtonClick } from '../handlers/phase-button-click-handler
 import { gridGenerator } from '../utils/grid-generator';
 import '../style/style.css'
 
-// const moveSpeed = 1;
+const moveSpeed = 1;
 const gridDimension = {
   rows: 6,
   columns: 6,
@@ -27,13 +27,11 @@ function Grid() {
         <div className='table'>
           {
             grid.map((array, i) => {
-              console.log(i, i%2);
-
               return (
                 <div className={i%2 === 0 ? 'row' : 'row-odd'}>
                   {
                     array.map((cell, j) => {
-                      return <div className={grid[i][j]} onClick={() => onCellClick(grid, setGrid, phase, setPhase, i, j)} />
+                      return <div className={grid[i][j]} onClick={() => onCellClick(grid, setGrid, moveSpeed, phase, setPhase, i, j)} />
                     })
                   }
                 </div>

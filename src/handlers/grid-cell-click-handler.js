@@ -3,10 +3,10 @@ import { selectedPhaseOnClickHandler } from './selected-phase-click-handler';
 import { spawnObjectOnGrid } from '../utils/spawn-object-on-grid';
 import { removeObjectFromGrid } from '../utils/remove-object-from-grid';
 
-export function onCellClick(grid, setGrid, phase, setPhase, y, x) {
+export function onCellClick(grid, setGrid, moveSpeed, phase, setPhase, y, x) {
     switch (phase) {
         case 'neutral':
-            neutralPhaseOnClickHandler(grid, y, x, setGrid, setPhase);
+            neutralPhaseOnClickHandler(grid, y, x, moveSpeed, setGrid, setPhase);
             break;
         case 'selected':
             selectedPhaseOnClickHandler(grid, y, x, setGrid, setPhase)
