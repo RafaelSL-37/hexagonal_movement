@@ -41,12 +41,6 @@ function Grid() {
         </div>
       </div>
 
-      {/* Remove this after debug */}
-      <br /><br /><br />
-      <div className='container'>
-        Current Phase: {phase}
-      </div> 
-
       <br /><br />
       <div className='container'>
         <button onClick={() => changePhaseOnButtonClick(grid, setGrid, setPhase, phase, 'spawn-actor')}>{phase !== 'spawn-actor' ? 'Add Actor' : 'Cancel'}</button>

@@ -5,6 +5,6 @@ export function removeObjectFromGrid(grid, y, x, setGrid, setPhase) {
         setGrid(grid);
 
         console.log(grid);
-        // setPhase('neutral'); //TODO: CHANGE THIS AS TO UPDATE THE GRID INSTANTLY
+        setPhase('neutral');
     }
 }
