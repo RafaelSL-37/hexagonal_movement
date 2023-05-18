@@ -3,6 +3,8 @@ export function removeObjectFromGrid(grid, y, x, setGrid, setPhase) {
         grid[y][x] = 'cell-empty';
 
         setGrid(grid);
-        setPhase('neutral'); //TODO: CHANGE THIS AS TO UPDATE THE GRID INSTANTLY
+
+        console.log(grid);
+        // setPhase('neutral'); //TODO: CHANGE THIS AS TO UPDATE THE GRID INSTANTLY
     }
 }

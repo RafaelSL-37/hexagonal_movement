@@ -17,9 +17,7 @@ function Grid() {
   const [ grid, setGrid ] = useState(initialGrid);
   const [ showModal, setShowModal ] = useState(true);
 
-  //TODO: add modal with tips
-
-  const modal = showModal ? <TipModal /> : '' ;
+  const modal = showModal ? <TipModal toggleFunction={setShowModal} /> : '' ;
 
   return (
     <div>
@@ -43,6 +41,7 @@ function Grid() {
         </div>
       </div>
 
+      {/* Remove this after debug */}
       <br /><br /><br />
       <div className='container'>
         Current Phase: {phase}
