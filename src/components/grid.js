@@ -3,6 +3,7 @@ import { onCellClick } from '../handlers/grid-cell-click-handler';
 import { changePhaseOnButtonClick } from '../handlers/phase-button-click-handler';
 import { gridGenerator } from '../utils/grid-generator';
 import '../style/style.css'
+import TipModal from './tip-modal';
 
 const moveSpeed = 3;
 const gridDimension = {
@@ -12,13 +13,18 @@ const gridDimension = {
 const initialGrid = gridGenerator(gridDimension);
 
 function Grid() {
-  const [phase, setPhase] = useState('neutral');
-  const [grid, setGrid] = useState(initialGrid);
+  const [ phase, setPhase ] = useState('neutral');
+  const [ grid, setGrid ] = useState(initialGrid);
+  const [ showModal, setShowModal ] = useState(true);
 
   //TODO: add modal with tips
 
+  const modal = showModal ? <TipModal /> : '' ;
+
   return (
     <div>
+      {modal}
+
       <div className="grid">
         <div className='table'>
           {
