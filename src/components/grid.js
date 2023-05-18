@@ -1,25 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { onCellClick } from '../handlers/grid-cell-click-handler';
 import { changePhaseOnButtonClick } from '../handlers/phase-button-click-handler';
 import { gridGenerator } from '../utils/grid-generator';
 import '../style/style.css'
 
-const moveSpeed = 1;
+const moveSpeed = 3;
 const gridDimension = {
-  rows: 6,
-  columns: 6,
+  rows: 10,
+  columns: 10,
 }
-
 const initialGrid = gridGenerator(gridDimension);
 
 function Grid() {
   const [phase, setPhase] = useState('neutral');
-
-  useEffect(() => {
-    setGrid(initialGrid);
-  }, []);
-
   const [grid, setGrid] = useState(initialGrid);
+
+  //TODO: add modal with tips
 
   return (
     <div>
@@ -40,10 +36,12 @@ function Grid() {
           }
         </div>
       </div>
+
       <br /><br /><br />
       <div className='container'>
         Current Phase: {phase}
       </div> 
+
       <br /><br />
       <div className='container'>
         <button onClick={() => changePhaseOnButtonClick(grid, setGrid, setPhase, phase, 'spawn-actor')}>{phase !== 'spawn-actor' ? 'Add Actor' : 'Cancel'}</button>

@@ -11,8 +11,8 @@ export function neutralPhaseOnClickHandler(grid, y, x, moveSpeed, setGrid, setPh
         for (let i = 0; i < moveSpeed; i++) {
             const tempReferenceCells = [];    
 
-            for (const referenceCell of referenceCells) { //TODO: fix bug where next iterations of movespeed have dislocated range
-                const filledGridData = y%2 > 0
+            for (const referenceCell of referenceCells) {
+                const filledGridData = referenceCell.y%2 > 0
                     ? fillGridWithRangeAroundCell(newGrid, differenceBasedOnDirectionForOdd, referenceCell.y, referenceCell.x) 
                     : fillGridWithRangeAroundCell(newGrid, differenceBasedOnDirectionForEven, referenceCell.y, referenceCell.x);
 

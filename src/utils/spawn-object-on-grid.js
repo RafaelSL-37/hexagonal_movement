@@ -3,6 +3,6 @@ export function spawnObjectOnGrid(grid, y, x, object, setGrid, setPhase) {
         grid[y][x] = object;
 
         setGrid(grid);
-        setPhase('neutral');
+        // setPhase('neutral');//TODO: CHANGE THIS AS TO UPDATE THE GRID INSTANTLY
     }
 }
