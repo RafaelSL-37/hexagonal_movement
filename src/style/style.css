@@ -65,16 +65,27 @@
 }
 
 .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 20%;
     display: flex;
     flex-direction: row;
     border: 1px solid black;
+    border-radius: 3%;
 }
 
 .tips {
-    width: 84,5%;
+    width: 90%;
 }
 
 .close-modal {
     width: auto;
+    margin-top: 5%;
+}
+
+.text-sphere {
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
 }

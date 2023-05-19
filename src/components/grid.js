@@ -46,6 +46,7 @@ function Grid() {
         <button onClick={() => changePhaseOnButtonClick(grid, setGrid, setPhase, phase, 'spawn-actor')}>{phase !== 'spawn-actor' ? 'Add Actor' : 'Cancel'}</button>
         <button onClick={() => changePhaseOnButtonClick(grid, setGrid, setPhase, phase, 'spawn-obstacle')}>{phase !== 'spawn-obstacle' ? 'Add Obstacle' : 'Cancel'}</button>
         <button onClick={() => changePhaseOnButtonClick(grid, setGrid, setPhase, phase, 'remove-actor-or-obstacle')}>{phase !== 'remove-actor-or-obstacle' ? 'Remove Actor/Obstacle' : 'Cancel'}</button>
+        <button onClick={() => setShowModal(true)} hidden={showModal}>Show Tips</button>
       </div>
     </div>  
   );
